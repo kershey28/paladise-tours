@@ -1,0 +1,64 @@
+@use '../abstracts/breakpoints';
+@use '../utilities/flow';
+
+.tours {
+  position: relative;
+
+  //children-1
+  &__heading {
+    align-self: center;
+    margin-bottom: flow.$margin-md;
+    z-index: 1;
+  }
+
+  //children-2
+  &__content {
+    //layout
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+
+    //others
+    width: 100%;
+    margin-bottom: flow.$margin-md;
+
+    @include breakpoints.respond(tab-land) {
+      gap: 4rem;
+    }
+
+    @include breakpoints.respond(tab-port) {
+      //layout
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      width: 60%;
+      gap: 8rem;
+
+      //position
+      position: relative;
+      left: 20%;
+    }
+
+    @include breakpoints.respond(phone-reg) {
+      width: 65%;
+      left: 17%;
+    }
+
+    @include breakpoints.respond(phone-mini) {
+      width: 75%;
+      left: 10%;
+    }
+  }
+
+  //children-3
+  &__btn {
+    align-self: center;
+    z-index: 3;
+    padding: 2rem;
+
+    @include breakpoints.respond(phone-reg) {
+      font-size: var(--fs-h4);
+    }
+  }
+}

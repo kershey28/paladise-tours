@@ -1,0 +1,11 @@
+@use '../utilities/flow';
+
+.adventures {
+  position: relative;
+
+  //children-1
+  &__heading {
+    text-align: center;
+    margin-bottom: flow.$margin-md;
+  }
+}

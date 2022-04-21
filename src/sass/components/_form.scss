@@ -1,0 +1,192 @@
+@use '../abstracts/variables';
+@use '../utilities/flow';
+@use '../abstracts/breakpoints';
+
+.form {
+  //flex
+  display: grid;
+  grid-template-rows: repeat(5, min-content);
+  align-items: center;
+  gap: 2rem;
+
+  //styling
+  border-left: 2px solid var(--clr-primary-opacity-300);
+  border-bottom: 2px solid var(--clr-primary-opacity-300);
+  background-image: linear-gradient(
+    105deg,
+    var(--clr-white-opacity-100),
+    transparent 49%
+  );
+
+  //size
+  padding: 5rem;
+  width: 50%;
+
+  @include breakpoints.respond(phone-reg) {
+    padding: 3rem;
+  }
+
+  &__heading {
+    //typography
+    font-size: var(--fs-h1-alt);
+    text-align: left;
+
+    width: 100%;
+    margin-bottom: 3rem;
+    z-index: 2;
+  }
+
+  &__group--1 {
+    margin-bottom: flow.$margin-sm-neg;
+  }
+
+  &__input {
+    //typography
+    font-size: 1.5rem;
+    font-family: inherit;
+
+    //styling
+    border-radius: 2px;
+    background-color: var(--clr-white-opacity-200);
+    border: none;
+    border-bottom: 3px solid transparent;
+
+    //others
+    width: 100%;
+    padding: 1.5rem 2rem;
+    transition: all 0.3s;
+
+    // 430px
+    @media only screen and (max-width: 26.875em) {
+      width: 150%;
+    }
+
+    @include breakpoints.respond(phone-mini) {
+      width: 120%;
+    }
+
+    &:focus {
+      box-shadow: variables.$shadow-black-light;
+      outline: none;
+      border-bottom: 3px solid var(--clr-primary-300);
+
+      &:invalid {
+        border-bottom: 3px solid var(--clr-neutral-900);
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: var(--clr-neutral-400);
+    }
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__label {
+    // typography
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    //alignment
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+
+    display: block;
+    transition: all 0.3s;
+  }
+
+  // Radio Buttons
+  &__radios {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8rem;
+
+    @include breakpoints.respond(phone-reg) {
+      width: max-content;
+      gap: 2rem;
+    }
+
+    // 430px
+    @media only screen and (max-width: 26.875em) {
+      display: block;
+    }
+  }
+
+  &__radio-group--1 {
+    // 430px
+    @media only screen and (max-width: 26.875em) {
+      position: relative;
+      bottom: 2rem;
+    }
+  }
+
+  &__radio {
+    margin-top: 2rem;
+
+    &-input {
+      display: none;
+    }
+
+    &-label {
+      font-size: var(--fs-default);
+      cursor: pointer;
+      position: relative;
+      padding-left: 4rem;
+      width: max-content;
+    }
+
+    &-button {
+      //size
+      height: 3rem;
+      width: 3rem;
+
+      //border
+      border: 5px solid var(--clr-primary-300);
+      border-radius: 50%;
+
+      //position
+      display: inline-block;
+      position: absolute;
+      left: 0rem;
+      top: -0.4rem;
+
+      &::after {
+        //fill
+        content: '';
+        background-color: var(--clr-primary-300);
+        opacity: 0;
+        transition: opacity 0.2s;
+
+        //size
+        height: 1.3rem;
+        width: 1.3rem;
+        border-radius: 50%;
+
+        //position
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &-input:checked ~ &-label &-button::after {
+      opacity: 1;
+    }
+  }
+
+  // Button
+  &__btn {
+    width: 18rem;
+    margin-top: flow.$margin-sm;
+
+    @include breakpoints.respond(phone-reg) {
+      width: 13rem;
+    }
+  }
+}

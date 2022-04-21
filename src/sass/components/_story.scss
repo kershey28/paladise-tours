@@ -1,0 +1,110 @@
+@use '../abstracts/variables';
+@use '../abstracts/breakpoints';
+@use '../utilities/flow';
+
+.story {
+  //size
+  width: 70%;
+  flex: 1;
+
+  //styling
+  border-right: 2px solid var(--clr-primary-300);
+  border-bottom: 2px solid var(--clr-primary-300);
+  border-radius: 3px;
+  box-shadow: variables.$shadow-black-dark;
+  transform: skewX(-12deg);
+
+  //alignment
+  margin: 0 auto;
+  padding: 6rem;
+  padding-left: 9rem;
+
+  //others
+  background-color: var(--clr-white-opacity-100);
+  font-size: var(--fs-default);
+
+  @include breakpoints.respond(phone-reg) {
+    transform: skewX(0deg);
+    padding: 6rem;
+  }
+
+  @include breakpoints.respond(phone-mini) {
+    padding: 4rem;
+  }
+
+  //children-1
+  &__shape {
+    //size
+    width: 15rem;
+    height: 15rem;
+
+    //shaping
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    //position
+    float: left;
+    position: relative;
+    margin-bottom: flow.$margin-sm;
+
+    // misc
+    transform: translateX(-3rem) skewX(12deg);
+    overflow: hidden;
+
+    @include breakpoints.respond(phone-reg) {
+      transform: translateX(0rem) skewX(0deg);
+      float: none;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__caption {
+    //position
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    //typography
+    color: var(--clr-neutral-100);
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+
+    //misc
+    transform: translate(-50%, 20%);
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden; //fix shaking glitch
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  //children-2
+  &__text {
+    transform: skewX(12deg);
+
+    @include breakpoints.respond(phone-reg) {
+      transform: skewX(0deg);
+    }
+  }
+
+  &__heading {
+    margin-bottom: flow.$margin-sm;
+  }
+}

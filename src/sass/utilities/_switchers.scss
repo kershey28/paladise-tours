@@ -1,0 +1,40 @@
+//navigation
+.sticky {
+  position: fixed;
+  width: 100vw;
+  background-color: var(--clr-white-opacity-100);
+}
+
+//reveal sections
+.reveal {
+  transition: transform 1s, opacity 1s;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+//cards
+.flip-front {
+  transform: rotateY(-180deg);
+}
+
+.flip-back {
+  transform: rotateY(0);
+}
+
+//animation
+.hidden-icon {
+  opacity: 0;
+  transform: translateY(20rem);
+}
+
+.pulsate {
+  animation: pulsate--black 1s ease-in 1s 5;
+}
+
+.moveInBottom-high {
+  animation: moveInBottom-high 1s ease-out 1s;
+  animation-fill-mode: backwards;
+}

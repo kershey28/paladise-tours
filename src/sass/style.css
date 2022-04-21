@@ -1,0 +1,91 @@
+:root {
+  --clr-primary-100: hsl(180.9deg, 93.3%, 61.2%);
+  --clr-primary-200: hsl(180.9deg, 93.3%, 51.2%);
+  --clr-primary-300: hsl(180.9deg, 93.3%, 41.2%);
+  --clr-primary-400: hsl(180.9deg, 93.3%, 31.2%);
+  --clr-primary-500: hsl(180.9deg, 93.3%, 21.2%);
+  --clr-neutral-100: hsl(0deg, 0%, 100%);
+  --clr-neutral-200: hsl(0deg, 0%, 87%);
+  --clr-neutral-300: hsl(0deg, 0%, 80%);
+  --clr-neutral-700: hsl(0deg, 0%, 40%);
+  --clr-neutral-800: hsl(0deg, 0%, 30%);
+  --clr-neutral-900: hsl(0deg, 0%, 15%);
+}
+
+/* Font Sizes  */
+:root {
+  /* Font Sizes  */
+  --fs-h1: 3.6rem;
+  --fs-h2: 2.8rem;
+  --fs-h3: 2rem;
+  --fs-default: 1.6rem;
+  --fs-xl: clamp(6rem, 8vw + 1rem, 12rem);
+  /* Font Family */
+  --ff-default: "Lato", sans-serif;
+  --ff-accent: "Raleway Dots", sans-serif;
+}
+@media only screen and (max-width: 23.125em) {
+  :root {
+    --fs-h1: 3.2rem;
+    --fs-h2: 2.4rem;
+    --fs-h3: 1.8rem;
+    --fs-default: 1.2rem;
+    --fs-xl: 6rem;
+  }
+}
+
+.heading-xl {
+  font-size: var(--fs-xl);
+  font-family: var(--ff-accent);
+  font-weight: 900;
+}
+
+.heading-1 {
+  font-size: var(--fs-h1);
+}
+
+.heading-2 {
+  font-size: var(--fs-h2);
+}
+
+.heading-3 {
+  font-size: var(--fs-h3);
+}
+
+.heading-4 {
+  font-size: var(--fs-h4);
+}
+
+:root {
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 400;
+  line-height: 1.6;
+  color: red;
+  font-family: var(--ff-default);
+  font-size: var(--fs-xl);
+}
+
+::-moz-selection {
+  background-color: var(--clr-primary-100);
+}
+
+::selection {
+  background-color: var(--clr-primary-100);
+}/*# sourceMappingURL=style.css.map */

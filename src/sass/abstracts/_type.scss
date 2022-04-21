@@ -1,0 +1,76 @@
+@use 'breakpoints';
+
+///////////////////////////////////////////
+// Variables
+
+/* Font Sizes  */
+$type-scale: (
+  'regular': (
+    h1: clamp(8rem, 7vw + 1rem, 15rem),
+    h1-alt: 7rem,
+    h2: 3.6rem,
+    h3: 2.8rem,
+    h4: 2rem,
+    default: 1.6rem,
+    small: 1.4rem,
+  ),
+  'small': (
+    h1: 8rem,
+    h1-alt: 5rem,
+    h2: 2.4rem,
+    h3: 1.8rem,
+    h4: 1.4rem,
+    default: 1.2rem,
+    small: 1rem,
+  ),
+);
+
+:root {
+  /* Font Sizes  */
+  @each $screen-size, $font-size in $type-scale {
+    @if $screen-size == 'regular' {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
+    } @else {
+      @include breakpoints.respond(phone-reg) {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+
+  /* Font Family */
+  --ff-default: 'Lato', sans-serif;
+  --ff-accent: 'Raleway Dots', sans-serif;
+  --ff-logo: 'Poppins', sans-serif;
+}
+
+///////////////////////////////////////////
+// Headings
+.heading-1 {
+  font-size: var(--fs-h1);
+  font-family: var(--ff-accent);
+  font-weight: 100;
+  line-height: 1.2;
+}
+
+.heading-2 {
+  font-size: var(--fs-h2);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5rem;
+}
+
+.heading-3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+}
+
+.heading-4 {
+  font-size: var(--fs-h4);
+  letter-spacing: 0.5rem;
+}

@@ -1,0 +1,85 @@
+@use '../abstracts/breakpoints';
+
+// main container
+.container-main {
+  display: grid;
+  grid-template-rows: 100vh repeat(7, min-content);
+}
+
+// childrens
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  text-align: center;
+
+  @include breakpoints.respond(tab-port) {
+    gap: 0;
+  }
+
+  @include breakpoints.respond(phone-mini) {
+    display: grid;
+    grid-template-rows: repeat(2, min-content);
+    grid-template-columns: repeat(2, min-content);
+    justify-content: center;
+    gap: 5rem;
+  }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-align: end;
+
+  @include breakpoints.respond(tab-land) {
+    display: grid;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 5rem;
+    grid-template-areas:
+      'head head'
+      'img img'
+      'img img'
+      'left right';
+  }
+
+  @include breakpoints.respond(tab-port) {
+    grid-template-areas:
+      'head head'
+      'img img'
+      'img img'
+      'left left'
+      'right right';
+  }
+}
+
+.tours {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+.stories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+}
+
+.book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

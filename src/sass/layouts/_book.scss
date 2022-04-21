@@ -1,0 +1,35 @@
+@use '../abstracts/variables';
+@use '../utilities/flow';
+@use '../abstracts/breakpoints';
+
+.book {
+  position: relative;
+
+  &__content {
+    //background
+    background-image: linear-gradient(
+        105deg,
+        var(--clr-white-opacity-400) 0%,
+        var(--clr-white-opacity-400) 49%,
+        transparent 49%
+      ),
+      url(../../assets/img/main/book.jpg);
+    background-size: cover;
+
+    //styling
+    border-radius: 3px;
+    box-shadow: variables.$shadow-black-dark;
+
+    height: min-content;
+    width: 80%;
+
+    @include breakpoints.respond(tab-port) {
+      background-image: linear-gradient(
+          105deg,
+          var(--clr-white-opacity-400) 0%,
+          var(--clr-white-opacity-200) 100%
+        ),
+        url(../../assets/img/main/book-small.jpg);
+    }
+  }
+}

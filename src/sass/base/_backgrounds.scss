@@ -1,0 +1,93 @@
+@use '../abstracts/breakpoints';
+
+// main Container
+.container-main {
+  background-color: var(--clr-neutral-100);
+  overflow: hidden;
+}
+
+// childrens
+.hero {
+  background-image: linear-gradient(
+      to right,
+      var(--clr-black-opacity-500),
+      var(--clr-black-opacity-400),
+      var(--clr-black-opacity-300),
+      transparent,
+      transparent
+    ),
+    url(../../assets/img/main/hero.png);
+  background-size: cover;
+  background-position: center;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+
+  @include breakpoints.respond(phone-reg) {
+    background-image: linear-gradient(
+        to right,
+        var(--clr-black-opacity-500),
+        var(--clr-black-opacity-400),
+        var(--clr-black-opacity-300),
+        transparent
+      ),
+      url(../../assets/img/main/hero-small.jpg);
+  }
+}
+
+.activities {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    transparent,
+    var(--clr-primary-opacity-400),
+    var(--clr-primary-opacity-300),
+    var(--clr-primary-opacity-300),
+    var(--clr-primary-opacity-200),
+    transparent
+  );
+  background-size: cover;
+  background-position: center;
+}
+
+.about {
+  background-image: linear-gradient(
+    to top,
+    var(--clr-primary-opacity-400),
+    var(--clr-primary-opacity-300),
+    var(--clr-primary-opacity-200),
+    var(--clr-primary-opacity-200),
+    transparent
+  );
+  background-size: cover;
+  background-position: center;
+
+  &__heading {
+    z-index: 1;
+  }
+
+  &__heading::after {
+    content: '';
+    top: 0;
+    left: -5%;
+    position: absolute;
+    height: 55%;
+    width: 110%;
+    background-color: var(--clr-neutral-100);
+    z-index: -5;
+  }
+}
+
+.tours {
+  background-color: var(--clr-primary-neutral);
+}
+
+.stories {
+  background-image: linear-gradient(
+    to bottom,
+    var(--clr-primary-opacity-400),
+    var(--clr-primary-opacity-300),
+    var(--clr-primary-opacity-200),
+    var(--clr-primary-opacity-200),
+    transparent
+  );
+}

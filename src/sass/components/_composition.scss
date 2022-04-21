@@ -1,0 +1,133 @@
+@use '../abstracts/variables';
+@use '../abstracts/breakpoints';
+
+.composition {
+  transition: all 2s;
+
+  &__photo {
+    position: absolute;
+    filter: grayscale(80%);
+    outline-offset: 2rem;
+    transition: all 0.2s;
+
+    &--p1 {
+      transform: rotate(10deg);
+      left: 10rem;
+      top: 10rem;
+      z-index: 3;
+      @include breakpoints.respond(tab-port) {
+        left: 30%;
+        top: 50%;
+      }
+
+      @include breakpoints.respond(phone-reg) {
+        left: 35%;
+        top: 60%;
+      }
+
+      @include breakpoints.respond(phone-mini) {
+        left: 40%;
+        top: 35%;
+      }
+    }
+
+    &--p2 {
+      transform: rotate(-10deg);
+      left: 35rem;
+      top: 15rem;
+      z-index: 4;
+      @include breakpoints.respond(tab-port) {
+        left: 60%;
+        top: 60%;
+      }
+
+      @include breakpoints.respond(phone-reg) {
+        left: 50%;
+        top: 80%;
+      }
+
+      @include breakpoints.respond(phone-mini) {
+        left: 40%;
+        top: 45%;
+      }
+    }
+
+    &--p3 {
+      left: 15rem;
+      top: 25rem;
+      z-index: 5;
+      @include breakpoints.respond(tab-port) {
+        left: 50%;
+        top: 70%;
+      }
+
+      @include breakpoints.respond(phone-reg) {
+        left: 40%;
+        top: 100%;
+      }
+
+      @include breakpoints.respond(phone-mini) {
+        top: 50%;
+      }
+    }
+
+    &--p4 {
+      transform: rotate(20deg);
+      left: 28rem;
+      top: 5rem;
+      z-index: 1;
+      @include breakpoints.respond(tab-port) {
+        left: 55%;
+        top: 35%;
+      }
+
+      @include breakpoints.respond(phone-reg) {
+        left: 53%;
+        top: 40%;
+      }
+
+      @include breakpoints.respond(phone-mini) {
+        left: 40%;
+        top: 30%;
+        transform: rotate(-20deg);
+      }
+    }
+
+    &--p5 {
+      transform: rotate(-20deg);
+      left: 5rem;
+      top: 0rem;
+      z-index: 2;
+      @include breakpoints.respond(tab-port) {
+        left: 40%;
+        top: 25%;
+      }
+
+      @include breakpoints.respond(phone-reg) {
+        left: 30%;
+      }
+
+      @include breakpoints.respond(phone-mini) {
+        left: 40%;
+        top: 25%;
+        transform: rotate(20deg);
+      }
+    }
+
+    &--active {
+      filter: grayscale(0%);
+    }
+    &:hover {
+      outline: 1.5rem solid var(--clr-neutral-700);
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: variables.$shadow-black-dark;
+      z-index: 20;
+      filter: grayscale(0%);
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+    filter: grayscale(80%);
+  }
+}

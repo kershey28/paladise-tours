@@ -1,0 +1,134 @@
+@use '../abstracts/breakpoints';
+@use '../utilities/flow';
+
+.about {
+  position: relative;
+  min-height: 40vh;
+  width: 100vw;
+
+  // children-1
+  &__heading {
+    position: relative;
+    top: -7rem;
+
+    @include breakpoints.respond(tab-land) {
+      grid-area: head;
+    }
+
+    @include breakpoints.respond(phone-reg) {
+      font-size: var(--fs-h1-alt);
+    }
+
+    @include breakpoints.respond(phone-reg) {
+      margin-bottom: flow.$margin-md;
+    }
+  }
+
+  // children-2
+  &__text-box {
+    width: 30vw;
+    margin-bottom: flow.$margin-lg;
+
+    @include breakpoints.respond(tab-land) {
+      margin-bottom: flow.$margin-sm;
+    }
+
+    @include breakpoints.respond(tab-port) {
+      width: 80vw;
+    }
+
+    &:nth-of-type(1) {
+      @include breakpoints.respond(tab-land) {
+        grid-area: left;
+      }
+
+      @include breakpoints.respond(phone-mini) {
+        margin-top: flow.$margin-sm;
+      }
+    }
+
+    &:nth-of-type(2) {
+      @include breakpoints.respond(tab-land) {
+        grid-area: right;
+        position: relative;
+        left: 10vw;
+      }
+
+      @include breakpoints.respond(tab-port) {
+        position: relative;
+        left: 5vw;
+      }
+    }
+  }
+
+  &__heading-sub {
+    margin-bottom: flow.$margin-sm;
+  }
+
+  // children-3
+  &__btn {
+    margin-bottom: flow.$margin-md;
+
+    @include breakpoints.respond(tab-land) {
+      position: absolute;
+      width: 19rem;
+      top: -60%;
+      left: 90%;
+      margin-bottom: flow.$margin-sm;
+    }
+
+    @include breakpoints.respond(tab-port) {
+      left: 30vw;
+      margin-top: flow.$margin-md;
+    }
+
+    @include breakpoints.respond(phone-reg) {
+      width: 14rem;
+    }
+  }
+
+  // children-4
+  &__composition {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+
+    @include breakpoints.respond(tab-land) {
+      position: relative;
+      height: 35vh;
+      top: -15%;
+      left: 18%;
+      grid-area: img;
+      margin-bottom: flow.$margin-md;
+    }
+
+    @include breakpoints.respond(tab-port) {
+      height: 50vh;
+      left: -25%;
+      margin-top: flow.$margin-lg-neg;
+    }
+
+    @include breakpoints.respond(phone-reg) {
+      left: -15%;
+      height: 20vh;
+      margin-bottom: flow.$margin-hg;
+    }
+
+    // 530px
+    @media only screen and (max-width: 33.125em) {
+      left: -25%;
+    }
+
+    //440px
+    @media only screen and (max-width: 27.5em) {
+      left: -33%;
+    }
+
+    @include breakpoints.respond(phone-mini) {
+      top: -25%;
+      height: 90vh;
+      margin-bottom: flow.$margin-hg-neg;
+      margin-top: flow.$margin-hg-neg;
+    }
+  }
+}

@@ -1,0 +1,238 @@
+@use '../abstracts/variables';
+@use '../abstracts/breakpoints';
+
+.card {
+  // functionality
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+
+  //size
+  flex: 0 0 25%;
+  height: 57rem;
+
+  //position
+  position: relative;
+  z-index: 5;
+
+  &__side {
+    //size
+    height: 57rem;
+    width: 100%;
+    overflow: hidden;
+
+    //position
+    position: absolute;
+
+    //styling
+    border-radius: 5px;
+    box-shadow: variables.$shadow-black-dark;
+
+    //fixers
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    //misc
+    transition: all 0.8s ease;
+
+    // Background Styling
+    &--front {
+      background-image: linear-gradient(
+        to right bottom,
+        var(--clr-white-opacity-500),
+        var(--clr-white-opacity-300),
+        var(--clr-white-opacity-100),
+        transparent
+      );
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          var(--clr-violet-opacity-500),
+          var(--clr-violet-opacity-400),
+          var(--clr-violet-opacity-300),
+          var(--clr-violet-opacity-100)
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          var(--clr-primary-opacity-500),
+          var(--clr-primary-opacity-400),
+          var(--clr-primary-opacity-300),
+          var(--clr-primary-opacity-100)
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          var(--clr-green-opacity-500),
+          var(--clr-green-opacity-400),
+          var(--clr-green-opacity-300),
+          var(--clr-green-opacity-100)
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // Front Side Styling
+  &__picture {
+    //background
+    background-size: cover;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    background-image: linear-gradient(
+      to right bottom,
+      var(--clr-black-opacity-500),
+      var(--clr-black-opacity-500),
+      transparent
+    );
+
+    //others
+    height: 23rem;
+    border-top-left-radius: 3px;
+
+    &--1 {
+      background-image: url(../../assets/img/tours/diver.jpg);
+      background-position: center;
+
+      @include breakpoints.respond(phone-reg) {
+        background-image: url(../../assets/img/tours/diver-small.jpg);
+      }
+    }
+
+    &--2 {
+      background-image: url(../../assets/img/tours/sailor.jpg);
+
+      @include breakpoints.respond(phone-reg) {
+        background-image: url(../../assets/img/tours/sailor-small.jpg);
+        background-position: center;
+      }
+    }
+
+    &--3 {
+      background-image: url(../../assets/img/tours/hopper.jpg);
+      background-position: bottom;
+
+      @include breakpoints.respond(phone-reg) {
+        background-image: url(../../assets/img/tours/hopper-small.jpg);
+      }
+    }
+  }
+
+  &__heading {
+    //font
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: var(--clr-neutral-100);
+
+    //position
+    top: 12rem;
+    right: 2rem;
+    width: 80%;
+    position: relative;
+  }
+
+  &__heading-span {
+    //position
+    position: absolute;
+    bottom: 5rem;
+    right: 0;
+    padding: 1rem 1.5rem;
+
+    // box
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        var(--clr-violet-opacity-400),
+        var(--clr-violet-opacity-100)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        var(--clr-primary-opacity-400),
+        var(--clr-primary-opacity-100)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        var(--clr-green-opacity-400),
+        var(--clr-green-opacity-100)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      position: relative;
+      top: 6rem;
+      width: 80%;
+      list-style: none;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid var(--clr-neutral-300);
+        }
+      }
+    }
+  }
+
+  // Back Side Styling
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    color: var(--clr-neutral-100);
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+
+  &__btn {
+    width: 16rem;
+  }
+}

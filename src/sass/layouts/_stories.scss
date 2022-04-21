@@ -1,0 +1,8 @@
+@use '../utilities/flow';
+
+.stories {
+  //children-1
+  &__heading {
+    margin-top: flow.$margin-lg-neg;
+  }
+}

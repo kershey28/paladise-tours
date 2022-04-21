@@ -1,0 +1,24 @@
+@use 'breakpoints';
+
+$icon-scale: (
+  'regular': 8.25rem,
+  'small': 5.25rem,
+);
+
+:root {
+  @each $size, $value in $icon-scale {
+    @if $size == 'regular' {
+      --icon-size: #{$value};
+    } @else {
+      @include breakpoints.respond(tab-port) {
+        --icon-size: #{$value};
+      }
+    }
+  }
+}
+
+.icon {
+  height: var(--icon-size);
+  width: var(--icon-size);
+  fill: var(--clr-primary-300);
+}

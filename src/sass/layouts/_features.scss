@@ -1,0 +1,52 @@
+@use '../utilities/flow';
+@use '../abstracts/breakpoints';
+
+.features {
+  // children-1
+  &__box {
+    flex: 0 0 20%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:nth-child(1) {
+      top: 5rem;
+    }
+
+    &:nth-child(2) {
+      @include breakpoints.respond(phone-mini) {
+        top: -5rem;
+      }
+    }
+
+    &:nth-child(3) {
+      bottom: 5rem;
+
+      @include breakpoints.respond(phone-mini) {
+        bottom: -5rem;
+      }
+    }
+
+    &:nth-child(4) {
+      bottom: 10rem;
+
+      @include breakpoints.respond(phone-mini) {
+        bottom: 5rem;
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin-bottom: flow.$margin-sm;
+  }
+
+  &__text {
+    margin-top: flow.$margin-sm;
+
+    @include breakpoints.respond(tab-port) {
+      display: none;
+    }
+  }
+}

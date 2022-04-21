@@ -1,0 +1,66 @@
+@use '../abstracts/breakpoints';
+
+// Margin
+$margin-hg: 15rem;
+$margin-xl: 10rem;
+$margin-lg: 8rem;
+$margin-md: 5rem;
+$margin-sm: 1.5rem;
+$margin-sm-neg: -1.5rem;
+$margin-md-neg: -5rem;
+$margin-lg-neg: -8rem;
+$margin-xl-neg: -10rem;
+$margin-hg-neg: -15rem;
+
+// Padding
+$padding-xl: 0 10rem;
+$padding-lg: 0 7rem;
+$padding-md: 0 5rem;
+$padding-sm: 0 3rem;
+$padding-mn: 0 1rem;
+
+.container-main > * {
+  padding: $padding-md;
+
+  @include breakpoints.respond(phone-reg) {
+    padding: $padding-mn;
+  }
+}
+
+.navigation {
+  padding: 0;
+}
+
+.features {
+  margin-top: $margin-sm;
+  margin-bottom: $margin-sm;
+}
+
+.adventures {
+  margin-top: $margin-hg;
+  margin-bottom: $margin-lg;
+}
+
+.about {
+  margin-top: $margin-hg;
+  margin-bottom: $margin-md;
+
+  @include breakpoints.respond(tab-land) {
+    margin-bottom: $margin-md-neg;
+  }
+}
+
+.tours {
+  margin-top: $margin-lg;
+  margin-bottom: $margin-md;
+}
+
+.stories {
+  margin-top: $margin-lg;
+  margin-bottom: $margin-md;
+}
+
+.book {
+  margin-top: $margin-md;
+  margin-bottom: $margin-xl;
+}

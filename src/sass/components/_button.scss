@@ -1,0 +1,110 @@
+@use '../abstracts/variables';
+@use '../abstracts/breakpoints';
+
+@mixin btn($color) {
+  &,
+  &:link,
+  &:visited {
+    //typography
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: var(--fs-default);
+
+    //layout
+    display: inline-block;
+    border-radius: 10rem;
+    position: relative;
+    padding: 1.5rem 3rem;
+
+    @include breakpoints.respond(phone-reg) {
+      padding: 1.5rem 2rem;
+    }
+
+    //misc
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: variables.$shadow-white-dark;
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(-1px);
+    box-shadow: variables.$shadow-white-light;
+  }
+
+  @if $color == primary {
+    background-color: transparent;
+    color: var(--clr-primary-100);
+    border: 1px solid var(--clr-primary-100);
+
+    &:hover {
+      box-shadow: variables.$shadow-white-dark;
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: variables.$shadow-white-light;
+    }
+  }
+
+  @if $color == neutral {
+    background-color: transparent;
+    color: var(--clr-neutral-100);
+    border: 1px solid var(--clr-neutral-100);
+
+    &:hover {
+      box-shadow: variables.$shadow-black-dark;
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: variables.$shadow-black-light;
+    }
+  }
+
+  @if $color == primary-full {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-neutral-100);
+    border: 1px solid var(--clr-primary-100);
+
+    &:hover {
+      box-shadow: variables.$shadow-black-dark;
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: variables.$shadow-black-light;
+    }
+  }
+
+  @content;
+}
+
+.btn {
+  &--primary {
+    @include btn(primary);
+  }
+
+  &--neutral {
+    @include btn(neutral);
+  }
+
+  &--primary-full {
+    @include btn(primary-full);
+  }
+}
+
+.shadow {
+  &:hover {
+    box-shadow: variables.$shadow-black-dark;
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: variables.$shadow-black-light;
+  }
+}
