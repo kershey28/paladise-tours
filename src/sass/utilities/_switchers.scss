@@ -15,6 +15,14 @@
   transform: translateY(8rem);
 }
 
+.reveal-burger {
+  transition: opacity 1s;
+}
+
+.hidden-burger {
+  opacity: 0;
+}
+
 //cards
 .flip-front {
   transform: rotateY(-180deg);

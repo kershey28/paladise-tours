@@ -11,7 +11,7 @@ const navDOM = document.querySelector('.navigation__nav');
 const navHeight = navDOM.getBoundingClientRect().height;
 
 // functionality
-const stickyNav = function (entries) {
+const stickyNav = entries => {
   const [entry] = entries;
 
   if (!entry.isIntersecting) {
@@ -27,6 +27,35 @@ const navigationObserver = new IntersectionObserver(stickyNav, {
 });
 
 navigationObserver.observe(heroDOM);
+
+///////////////////////////////////////
+// Burger Reveal
+
+// variables
+const navBurgerDOM = document.querySelector('.burger__button');
+const navBurgerHeight = navBurgerDOM.getBoundingClientRect().height;
+const portMediaQuery = window.matchMedia('(max-width: 900px)');
+
+// functionality
+const revealBurger = entries => {
+  const [entry] = entries;
+
+  // if (!portMediaQuery) return;
+  if (!entry.isIntersecting) {
+    navBurgerDOM.classList.remove('hidden-burger');
+  } else {
+    navBurgerDOM.classList.add('hidden-burger');
+  }
+};
+
+//observer
+const burgerObserver = new IntersectionObserver(revealBurger, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navBurgerHeight}px`,
+});
+
+burgerObserver.observe(heroDOM);
 
 ///////////////////////////////////////
 // Burger Exit
@@ -80,7 +109,7 @@ toursBtnDOM.addEventListener('click', function (e) {
 
 ///////////////////////////////////////
 // Slider
-const slider = function () {
+const slider = () => {
   //variables
   const slides = document.querySelectorAll('.slide');
   const btnLeft = document.querySelector('.slider__btn--left');
@@ -91,7 +120,7 @@ const slider = function () {
   const maxSlide = slides.length;
 
   // functionality
-  const createDots = function () {
+  const createDots = () => {
     slides.forEach(function (_, i) {
       dotContainer.insertAdjacentHTML(
         'beforeend',
@@ -100,7 +129,7 @@ const slider = function () {
     });
   };
 
-  const activateDot = function (slide) {
+  const activateDot = slide => {
     document
       .querySelectorAll('.dots__dot')
       .forEach(dot => dot.classList.remove('dots__dot--active'));
@@ -110,14 +139,14 @@ const slider = function () {
       .classList.add('dots__dot--active');
   };
 
-  const goToSlide = function (slide) {
+  const goToSlide = slide => {
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
     );
   };
 
   // Next slide
-  const nextSlide = function () {
+  const nextSlide = () => {
     if (curSlide === maxSlide - 1) {
       curSlide = 0;
     } else {
@@ -128,7 +157,7 @@ const slider = function () {
     activateDot(curSlide);
   };
 
-  const prevSlide = function () {
+  const prevSlide = () => {
     if (curSlide === 0) {
       curSlide = maxSlide - 1;
     } else {
@@ -138,7 +167,7 @@ const slider = function () {
     activateDot(curSlide);
   };
 
-  const init = function () {
+  const init = () => {
     goToSlide(0);
     createDots();
 
@@ -179,7 +208,7 @@ const slider = function () {
 const sliderDOM = document.querySelector('.slider');
 
 //functionality
-const playSlider = function (entries, observer) {
+const playSlider = (entries, observer) => {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
@@ -205,7 +234,7 @@ sliderObserver.observe(sliderDOM);
 const allSectionsDom = document.querySelectorAll('.reveal');
 
 //functionality
-const revealSection = function (entries, observer) {
+const revealSection = (entries, observer) => {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
@@ -221,7 +250,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 });
 
 //preset
-allSectionsDom.forEach(function (section) {
+allSectionsDom.forEach(section => {
   sectionObserver.observe(section);
   section.classList.add('hidden');
 });
@@ -234,8 +263,9 @@ const iconDOM = document.querySelectorAll('.features');
 const iconChildDOM = document.querySelectorAll('.features');
 
 //functionality
-const moveIcon = function (entries, observer) {
+const moveIcon = (entries, observer) => {
   const [entry] = entries;
+  const miniMediaQuery = window.matchMedia('(max-width: 380px)');
   const icon__1 = () => {
     entry.target.children[0].classList.add('moveInBottom-high');
     entry.target.children[0].classList.remove('hidden-icon');
@@ -258,10 +288,21 @@ const moveIcon = function (entries, observer) {
 
   if (!entry.isIntersecting) return;
 
-  icon__4();
-  setTimeout(icon__3, 1000);
-  setTimeout(icon__2, 2000);
-  setTimeout(icon__1, 3000);
+  // Animation for Regular
+  if (!miniMediaQuery.matches) {
+    icon__4();
+    setTimeout(icon__3, 1000);
+    setTimeout(icon__2, 2000);
+    setTimeout(icon__1, 3000);
+  }
+
+  // Animation for Mobile-mini 380px
+  if (miniMediaQuery.matches) {
+    icon__2();
+    setTimeout(icon__1, 1000);
+    setTimeout(icon__4, 2000);
+    setTimeout(icon__3, 3000);
+  }
 
   observer.unobserve(entry.target);
 };
@@ -288,7 +329,7 @@ iconDOM.forEach(section => {
 const cardDOM = document.querySelectorAll('.card');
 
 //functionality
-const flipCard = function (entries, observer) {
+const flipCard = (entries, observer) => {
   const [entry] = entries;
   const flipFront = () => entry.target.children[0].classList.add('flip-front');
   const flipBack = () => entry.target.children[1].classList.add('flip-back');
@@ -326,7 +367,7 @@ cardDOM.forEach(section => {
 const btnDOM = document.querySelector('.tours__btn');
 
 //functionality
-const animateBtn = function (entries, observer) {
+const animateBtn = (entries, observer) => {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;

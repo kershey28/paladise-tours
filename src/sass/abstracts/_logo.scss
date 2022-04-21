@@ -2,13 +2,24 @@
 
 .logo {
   font-family: var(--ff-logo);
-  color: var(--clr-neutral-400);
+  color: var(--clr-neutral-600);
   font-weight: 100;
   position: relative;
+
+  @include breakpoints.respond(tab-port) {
+    font-size: var(--fs-small);
+  }
+
+  @include breakpoints.respond(phone-mini) {
+    font-size: var(--fs-h4);
+  }
 
   &__heading {
     font-weight: 100;
     font-size: var(--fs-h3);
+    @include breakpoints.respond(tab-port) {
+      font-size: var(--fs-h4);
+    }
   }
 
   &__sub-heading {
@@ -17,8 +28,13 @@
     left: 5.2rem;
     bottom: 1rem;
 
+    @include breakpoints.respond(tab-port) {
+      font-size: var(--fs-small);
+      left: 3.2rem;
+    }
+
     @include breakpoints.respond(phone-reg) {
-      left: 3rem;
+      left: 2.3rem;
       bottom: 0.8rem;
     }
   }
@@ -30,10 +46,16 @@
     top: 4rem;
     right: 0rem;
 
-    @include breakpoints.respond(phone-reg) {
+    @include breakpoints.respond(tab-port) {
       height: 1rem;
       width: 1rem;
-      top: 2.5rem;
+      top: 2.9rem;
+    }
+
+    @include breakpoints.respond(phone-reg) {
+      height: 0.7rem;
+      width: 0.7rem;
+      top: 2rem;
     }
   }
 }

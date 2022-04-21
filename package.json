@@ -2,7 +2,7 @@
   "name": "paladise-tours",
   "version": "0.1.0",
   "description": "palawan tours site",
-  "main": "public/index.html",
+  "default": "public/index.html",
   "author": "Kershey Carino",
   "scripts": {
     "build:sass": "sass  --no-source-map src/sass:public/css",
