@@ -1,1 +1,14 @@
+@mixin word-shade($background-color: var(--clr-black-opacity-200)) {
+  position: relative;
 
+  &::after {
+    content: '';
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: $background-color;
+    z-index: -1;
+    @content;
+  }
+}

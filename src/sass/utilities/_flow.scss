@@ -13,27 +13,26 @@ $margin-xl-neg: -10rem;
 $margin-hg-neg: -15rem;
 
 // Padding
-$padding-xl: 0 10rem;
-$padding-lg: 0 7rem;
-$padding-md: 0 5rem;
-$padding-sm: 0 3rem;
-$padding-mn: 0 1rem;
+$padding-xl: 10rem;
+$padding-lg: 7rem;
+$padding-md: 5rem;
+$padding-sm: 3rem;
+$padding-mn: 1rem;
 
 .container-main > * {
-  padding: $padding-md;
+  padding-inline: $padding-md;
 
   @include breakpoints.respond(phone-reg) {
-    padding: $padding-mn;
+    padding-inline: $padding-mn;
   }
 }
 
 .navigation {
-  padding: 0;
+  padding-inline: 0;
 }
 
 .features {
-  margin-top: $margin-sm;
-  margin-bottom: $margin-sm;
+  margin-block: $margin-sm;
 }
 
 .adventures {
@@ -44,14 +43,10 @@ $padding-mn: 0 1rem;
 .about {
   margin-top: $margin-hg;
   margin-bottom: $margin-md;
-
-  @include breakpoints.respond(tab-land) {
-    margin-bottom: $margin-md-neg;
-  }
 }
 
 .tours {
-  margin-top: $margin-lg;
+  margin-top: $margin-md;
   margin-bottom: $margin-md;
 }
 

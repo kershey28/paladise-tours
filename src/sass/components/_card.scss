@@ -8,15 +8,27 @@
 
   //size
   flex: 0 0 25%;
-  height: 60rem;
+  height: 58rem;
 
   //position
   position: relative;
   z-index: 5;
 
+  @include breakpoints.respond(tab-land) {
+    height: 62rem;
+  }
+
+  @include breakpoints.respond(tab-port) {
+    height: 58rem;
+  }
+
+  @include breakpoints.respond(phone-reg) {
+    height: 62rem;
+  }
+
   &__side {
     //size
-    height: 60rem;
+    height: 58rem;
     width: 100%;
     overflow: hidden;
 
@@ -33,6 +45,18 @@
 
     //misc
     transition: all 0.8s ease;
+
+    @include breakpoints.respond(tab-land) {
+      height: 62rem;
+    }
+
+    @include breakpoints.respond(tab-port) {
+      height: 58rem;
+    }
+
+    @include breakpoints.respond(phone-reg) {
+      height: 62rem;
+    }
 
     // Background Styling
     &--front {
@@ -230,9 +254,5 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
-  }
-
-  &__btn {
-    width: 16rem;
   }
 }

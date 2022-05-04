@@ -1,100 +1,132 @@
 @use '../abstracts/variables';
 @use '../abstracts/breakpoints';
 
-@mixin btn($color) {
-  &,
-  &:link,
-  &:visited {
+@mixin btn-regular($type) {
+  & {
+    //sizing
+    padding: 1.5rem 3rem;
+    width: max-content;
+
     //typography
-    text-transform: uppercase;
     text-decoration: none;
-    font-size: var(--fs-default);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    text-transform: uppercase;
+
+    //styling
+    border-radius: 10rem;
+    border: 1px solid var(--clr-neutral-100);
+    transition: all 0.2s;
 
     //layout
     display: inline-block;
-    border-radius: 10rem;
     position: relative;
-    padding: 1.5rem 3rem;
-
-    @include breakpoints.respond(phone-reg) {
-      padding: 1.5rem 2rem;
-    }
-
-    //misc
-    transition: all 0.2s;
-    cursor: pointer;
   }
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: variables.$shadow-white-dark;
-  }
-
-  &:active,
+  &:hover,
   &:focus {
-    transform: translateY(-1px);
-    box-shadow: variables.$shadow-white-light;
+    transform: translateY(-2px);
   }
 
-  @if $color == primary {
-    background-color: transparent;
-    color: var(--clr-primary-100);
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  @if $type == primary {
+    background-image: linear-gradient(
+      to right bottom,
+      var(--clr-primary-400),
+      var(--clr-primary-300),
+      var(--clr-primary-200)
+    );
+    box-shadow: variables.$shadow-white-light;
+    color: var(--clr-neutral-200);
     border: 1px solid var(--clr-primary-100);
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       box-shadow: variables.$shadow-white-dark;
-    }
-
-    &:active,
-    &:focus {
-      box-shadow: variables.$shadow-white-light;
     }
   }
 
-  @if $color == neutral {
+  @if $type == ghost {
     background-color: transparent;
+    box-shadow: variables.$shadow-black-light;
     color: var(--clr-neutral-100);
     border: 1px solid var(--clr-neutral-100);
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       box-shadow: variables.$shadow-black-dark;
-    }
-
-    &:active,
-    &:focus {
-      box-shadow: variables.$shadow-black-light;
-    }
-  }
-
-  @if $color == primary-full {
-    background-color: var(--clr-primary-100);
-    color: var(--clr-neutral-100);
-    border: 1px solid var(--clr-primary-100);
-
-    &:hover {
-      box-shadow: variables.$shadow-black-dark;
-    }
-
-    &:active,
-    &:focus {
-      box-shadow: variables.$shadow-black-light;
     }
   }
 
   @content;
 }
 
-.btn {
+.btn-cta {
+  @include btn-regular(primary);
+}
+
+.btn-ghost {
+  @include btn-regular(ghost);
+}
+
+@mixin btn-text($type) {
+  & {
+    //styling
+    background-color: transparent;
+    text-decoration: none;
+    padding: 3px;
+
+    //misc
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: variables.$shadow-black-dark;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  @if $type == primary {
+    border-bottom: 1px solid var(--clr-neutral-100);
+    color: var(--clr-neutral-100);
+  }
+
+  @if $type == neutral {
+    border-bottom: 1px solid var(--clr-primary-300);
+    color: var(--clr-primary-300);
+  }
+}
+
+.btn-text {
   &--primary {
-    @include btn(primary);
+    @include btn-text(primary);
   }
 
   &--neutral {
-    @include btn(neutral);
-  }
-
-  &--primary-full {
-    @include btn(primary-full);
+    @include btn-text(neutral);
   }
 }
 

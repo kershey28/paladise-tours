@@ -1,4 +1,6 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins';
+@use '../abstracts/breakpoints';
 
 .slider {
   //sizing
@@ -29,7 +31,12 @@
 
   &__header {
     position: absolute;
+    text-align: center;
     top: 2rem;
+
+    @include breakpoints.respond(phone-mini) {
+      font-size: 1.6rem;
+    }
   }
 }
 

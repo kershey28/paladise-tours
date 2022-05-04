@@ -48,19 +48,21 @@
     justify-content: space-around;
     gap: 5rem;
     grid-template-areas:
-      'head head'
-      'img img'
-      'img img'
-      'left right';
+      'head head head'
+      'img img img'
+      'img img img'
+      'left right right'
+      '. btn .';
   }
 
   @include breakpoints.respond(tab-port) {
     grid-template-areas:
-      'head head'
-      'img img'
-      'img img'
-      'left left'
-      'right right';
+      'head'
+      'img'
+      'img'
+      'left'
+      'right'
+      'btn';
   }
 }
 

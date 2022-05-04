@@ -55,7 +55,6 @@
   &__btn {
     align-self: center;
     z-index: 3;
-    padding: 2rem;
 
     @include breakpoints.respond(phone-reg) {
       font-size: var(--fs-h4);

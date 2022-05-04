@@ -8,14 +8,14 @@
   background-clip: text;
   color: transparent;
 
-  @if $type == primary {
+  @if $type == primary-regular {
     background-image: linear-gradient(
       to right,
       var(--clr-primary-opacity-500),
       var(--clr-primary-opacity-100)
     );
   }
-  @if $type == neutral {
+  @if $type == white-regular {
     background-image: linear-gradient(
       to right,
       var(--clr-white-opacity-500),
@@ -23,7 +23,7 @@
     );
   }
 
-  @if $type == subtle-primary {
+  @if $type == primary-subtle {
     background-image: linear-gradient(
       to right,
       var(--clr-primary-opacity-500),
@@ -31,7 +31,7 @@
     );
   }
 
-  @if $type == subtle-white {
+  @if $type == white-subtle {
     background-image: linear-gradient(
       to right,
       var(--clr-white-opacity-500),
@@ -42,20 +42,20 @@
 }
 
 .gradient {
-  &--primary-1 {
-    @include gradient(primary);
+  &--primary-regular {
+    @include gradient(primary-regular);
   }
 
-  &--white-1 {
-    @include gradient(neutral);
+  &--white-regular {
+    @include gradient(white-regular);
   }
 
-  &--primary-2 {
-    @include gradient(subtle-primary);
+  &--primary-subtle {
+    @include gradient(primary-subtle);
   }
 
-  &--white-2 {
-    @include gradient(subtle-white);
+  &--white-subtle {
+    @include gradient(white-subtle);
   }
 }
 
@@ -64,7 +64,7 @@
 .stroke {
   -webkit-text-stroke: 3px var(--clr-neutral-600);
   color: transparent;
-  font-family: var(--ff-default);
+  font-family: var(--ff-primary);
   font-weight: 400;
 }
 

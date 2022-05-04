@@ -16,7 +16,7 @@
     }
 
     @include breakpoints.respond(phone-reg) {
-      font-size: var(--fs-h1-alt);
+      font-size: var(--fs-heading-alt);
     }
 
     @include breakpoints.respond(phone-reg) {
@@ -67,23 +67,15 @@
 
   // children-3
   &__btn {
-    margin-bottom: flow.$margin-md;
+    margin-bottom: flow.$margin-lg;
 
     @include breakpoints.respond(tab-land) {
-      position: absolute;
-      width: 19rem;
-      top: -60%;
-      left: 90%;
-      margin-bottom: flow.$margin-sm;
+      grid-area: btn;
+      width: max-content;
     }
 
     @include breakpoints.respond(tab-port) {
-      left: 30vw;
-      margin-top: flow.$margin-md;
-    }
-
-    @include breakpoints.respond(phone-reg) {
-      width: 14rem;
+      justify-self: end;
     }
   }
 

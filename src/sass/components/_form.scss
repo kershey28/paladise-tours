@@ -28,7 +28,7 @@
 
   &__heading {
     //typography
-    font-size: var(--fs-h1-alt);
+    font-size: var(--fs-heading-alt);
     text-align: left;
 
     width: 100%;
@@ -182,11 +182,7 @@
 
   // Button
   &__btn {
-    width: 18rem;
+    cursor: pointer;
     margin-top: flow.$margin-sm;
-
-    @include breakpoints.respond(phone-reg) {
-      width: 13rem;
-    }
   }
 }

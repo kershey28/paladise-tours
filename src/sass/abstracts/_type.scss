@@ -6,22 +6,20 @@
 /* Font Sizes  */
 $type-scale: (
   'regular': (
-    h1: clamp(8rem, 7vw + 1rem, 15rem),
-    h1-alt: 7rem,
-    h2: 3.6rem,
-    h3: 2.8rem,
-    h4: 2rem,
-    default: 1.6rem,
-    small: 1.4rem,
+    'heading': clamp(8rem, 7vw + 1rem, 15rem),
+    'heading-alt': 7rem,
+    'subheading': 2.4rem,
+    'label': 1.8rem,
+    'body': 1.6rem,
+    'caption': 1.4rem,
   ),
   'small': (
-    h1: 8rem,
-    h1-alt: 5rem,
-    h2: 2.4rem,
-    h3: 1.8rem,
-    h4: 1.4rem,
-    default: 1.2rem,
-    small: 1rem,
+    'heading': 7rem,
+    'heading-alt': 5rem,
+    'subheading': 2rem,
+    'label': 1.4rem,
+    'body': 1.2rem,
+    'caption': 1rem,
   ),
 );
 
@@ -42,7 +40,7 @@ $type-scale: (
   }
 
   /* Font Family */
-  --ff-default: 'Lato', sans-serif;
+  --ff-primary: 'Lato', sans-serif;
   --ff-accent: 'Raleway Dots', sans-serif;
   --ff-logo: 'Poppins', sans-serif;
 }
@@ -50,27 +48,26 @@ $type-scale: (
 ///////////////////////////////////////////
 // Headings
 .heading-1 {
-  font-size: var(--fs-h1);
+  font-size: var(--fs-heading);
   font-family: var(--ff-accent);
   font-weight: 100;
   line-height: 1.2;
 }
 
 .heading-2 {
-  font-size: var(--fs-h2);
+  font-size: var(--fs-subheading);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1.5rem;
 }
 
 .heading-3 {
-  font-size: var(--fs-h3);
+  font-size: var(--fs-label);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1rem;
+  letter-spacing: 0.5rem;
 }
 
-.heading-4 {
-  font-size: var(--fs-h4);
-  letter-spacing: 0.5rem;
+.caption {
+  font-size: var(--fs-caption);
 }
