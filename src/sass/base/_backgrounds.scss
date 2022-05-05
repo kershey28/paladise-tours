@@ -8,6 +8,8 @@
 
 // childrens
 .hero {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
   background-image: linear-gradient(
       to right,
       var(--clr-black-opacity-500),
@@ -19,15 +21,13 @@
     url(../../assets/img/main/hero.png);
   background-size: cover;
   background-position: center;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
 
   @include breakpoints.respond(phone-reg) {
     background-image: linear-gradient(
         to right,
         var(--clr-black-opacity-500),
-        var(--clr-black-opacity-400),
         var(--clr-black-opacity-300),
+        var(--clr-black-opacity-100),
         transparent
       ),
       url(../../assets/img/main/hero-small.jpg);

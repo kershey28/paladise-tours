@@ -2,13 +2,13 @@
 
 .logo {
   font-family: var(--ff-logo);
-  color: var(--clr-neutral-600);
   font-weight: 100;
   position: relative;
 
   &__heading {
     font-weight: 100;
     font-size: var(--fs-subheading);
+    color: var(--clr-primary-300);
   }
 
   &__sub-heading {

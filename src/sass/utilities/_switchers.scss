@@ -38,11 +38,10 @@
   transform: translateY(20rem);
 }
 
-.pulsate {
-  animation: pulsate--black 1s ease-in 1s 5;
-}
+// .pulsate {
+//   animation: pulsate--black 1s ease-in 1s 5;
+// }
 
 .moveInBottom-high {
-  animation: moveInBottom-high 1s ease-out 1s;
-  animation-fill-mode: backwards;
+  animation: moveInBottom-high 1s backwards ease-out 1s;
 }

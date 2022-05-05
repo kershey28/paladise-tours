@@ -1,0 +1,22 @@
+//animation
+.hero-animation {
+  & .intro-box {
+    animation: background-reveal 0.5s forwards ease-in 1s;
+  }
+  & .intro-box__first {
+    animation: moveInLeft 0.5s forwards ease-in;
+  }
+
+  & .intro-box__second {
+    animation: moveInRight 0.5s forwards ease-in;
+  }
+
+  & .hero__heading-1 {
+    animation: moveInBottom 1s backwards ease-out 1.5s;
+  }
+
+  & .hero__btn {
+    animation: fade-in 1s backwards ease-out 1.5s,
+      pulsate--white 1s ease-in 2s 5;
+  }
+}

@@ -6,16 +6,18 @@
 /* Font Sizes  */
 $type-scale: (
   'regular': (
-    'heading': clamp(8rem, 7vw + 1rem, 15rem),
+    'heading': clamp(8rem, 12rem, 15rem),
     'heading-alt': 7rem,
+    'display': 7rem,
     'subheading': 2.4rem,
     'label': 1.8rem,
     'body': 1.6rem,
     'caption': 1.4rem,
   ),
   'small': (
-    'heading': 7rem,
+    'heading': 7.5rem,
     'heading-alt': 5rem,
+    'display': 3.2rem,
     'subheading': 2rem,
     'label': 1.4rem,
     'body': 1.2rem,
@@ -47,6 +49,13 @@ $type-scale: (
 
 ///////////////////////////////////////////
 // Headings
+.heading-display {
+  font-size: var(--fs-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5rem;
+}
+
 .heading-1 {
   font-size: var(--fs-heading);
   font-family: var(--ff-accent);

@@ -7,7 +7,7 @@
 
 // variables
 const heroDOM = document.querySelector('.hero');
-const navDOM = document.querySelector('.navigation__nav');
+const navDOM = document.querySelector('.navigation__content');
 const navHeight = navDOM.getBoundingClientRect().height;
 
 // functionality
@@ -98,10 +98,12 @@ const bookDOM = document.querySelector('#book');
 
 // event listeners
 heroBtnDOM.addEventListener('click', function (e) {
+  e.preventDefault();
   toursDOM.scrollIntoView({ behavior: 'smooth' });
 });
 
 toursBtnDOM.addEventListener('click', function (e) {
+  e.preventDefault();
   bookDOM.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -359,27 +361,3 @@ const cardObserver = new IntersectionObserver(flipCard, {
 cardDOM.forEach(section => {
   cardObserver.observe(section);
 });
-
-///////////////////////////////////////
-// Animate Button
-
-//variables
-const btnDOM = document.querySelector('.tours__btn');
-
-//functionality
-const animateBtn = (entries, observer) => {
-  const [entry] = entries;
-
-  if (!entry.isIntersecting) return;
-
-  entry.target.classList.add('pulsate');
-  observer.unobserve(entry.target);
-};
-
-//observer
-const btnObserver = new IntersectionObserver(animateBtn, {
-  root: null,
-  threshold: 0.15,
-});
-
-btnObserver.observe(btnDOM);
