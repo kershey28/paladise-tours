@@ -4,18 +4,17 @@
 @mixin btn-regular($type) {
   & {
     //sizing
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 2rem;
     width: max-content;
 
     //typography
     text-decoration: none;
-    font-size: var(--fs-label);
+    font-size: var(--fs-body);
     font-weight: 600;
     text-transform: uppercase;
 
     //styling
     border-radius: 10rem;
-    border: 1px solid var(--clr-neutral-100);
     transition: all 0.2s;
 
     //layout
@@ -45,7 +44,7 @@
     );
     box-shadow: variables.$shadow-white-light;
     color: var(--clr-neutral-200);
-    border: 1px solid var(--clr-neutral-900);
+    border: 1px solid var(--clr-primary-300);
 
     &:hover,
     &:focus,

@@ -361,3 +361,35 @@ const cardObserver = new IntersectionObserver(flipCard, {
 cardDOM.forEach(section => {
   cardObserver.observe(section);
 });
+
+///////////////////////////////////////
+// Show Story Names
+
+//variables
+const storyDOM = document.querySelectorAll('.story');
+
+//functionality
+const showName = (entries, observer) => {
+  const [entry] = entries;
+  const addShowName = () => entry.target.classList.add('show-story');
+  const removeShowName = () => entry.target.classList.remove('show-story');
+
+  if (!entry.isIntersecting) return;
+
+  addShowName();
+
+  // Reset
+  observer.unobserve(entry.target);
+  setTimeout(removeShowName, 1000);
+};
+
+//observer
+const storyObserver = new IntersectionObserver(showName, {
+  root: null,
+  threshold: 1,
+});
+
+//preset
+storyDOM.forEach(section => {
+  storyObserver.observe(section);
+});

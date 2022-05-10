@@ -38,10 +38,18 @@
   transform: translateY(20rem);
 }
 
-// .pulsate {
-//   animation: pulsate--black 1s ease-in 1s 5;
-// }
-
 .moveInBottom-high {
   animation: moveInBottom-high 1s backwards ease-out 1s;
+}
+
+.show-story {
+  & .story__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+
+  & .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
