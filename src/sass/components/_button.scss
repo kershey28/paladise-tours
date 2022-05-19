@@ -4,12 +4,12 @@
 @mixin btn-regular($type) {
   & {
     //sizing
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 3rem;
     width: max-content;
 
     //typography
     text-decoration: none;
-    font-size: var(--fs-body);
+    font-size: var(--fs-label);
     font-weight: 600;
     text-transform: uppercase;
 

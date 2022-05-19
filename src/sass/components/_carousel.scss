@@ -68,6 +68,12 @@
   border: none;
   border-radius: 50%;
 
+  @include breakpoints.respond(phone-reg) {
+    font-size: 2.75rem;
+    height: 4rem;
+    width: 4rem;
+  }
+
   &:hover {
     background-color: var(--clr-white-opacity-300);
   }
@@ -76,11 +82,18 @@
 .slider__btn--left {
   left: 6%;
   transform: translate(-50%, -50%);
+  @include breakpoints.respond(phone-mini) {
+    left: 8%;
+  }
 }
 
 .slider__btn--right {
   right: 6%;
   transform: translate(50%, -50%);
+
+  @include breakpoints.respond(phone-mini) {
+    right: 8%;
+  }
 }
 
 .dots {
